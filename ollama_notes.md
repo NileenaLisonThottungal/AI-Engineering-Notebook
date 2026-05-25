@@ -48,24 +48,24 @@ Instead of dealing with complex cloud APIs, authentication, rate limits, or data
 
 ```
                          ┌─────────────────────────────┐
-                         │           OLLAMA             │
+                         │           OLLAMA            │
                          │                             │
-   ┌──────────┐          │  ┌─────────┐  ┌──────────┐  │          ┌─────────────┐
-   │   User   │◀────────▶│  │   CLI   │  │ REST API │  │◀────────▶│  Your App   │
-   └──────────┘          │  └─────────┘  └──────────┘  │          └─────────────┘
-                         │         │          │         │
-                         │         ▼          ▼         │
+   ┌──────────┐          │  ┌─────────┐  ┌──────────┐  │            ┌─────────────┐
+   │   User   │◀────────▶│ │   CLI   │  │ REST API │   │◀────────▶│  Your App   │
+   └──────────┘          │  └─────────┘  └──────────┘  │            └─────────────┘
+                         │         │          │        │
+                         │         ▼          ▼        │
                          │   ┌─────────────────────┐   │
                          │   │   Model Runner      │   │
                          │   │  (GPU/CPU managed)  │   │
                          │   └──────────┬──────────┘   │
-                         │              │               │
-                         └──────────────│───────────────┘
+                         │              │              │
+                         └──────────────│──────────────┘
                                         │
                          ┌──────────────▼───────────────┐
-                         │         LOCAL MODELS          │
-                         │  llama3.2 | llava | mistral   │
-                         │  codellama | deepseek-r1 ...  │
+                         │         LOCAL MODELS         │
+                         │  llama3.2 | llava | mistral  │
+                         │  codellama | deepseek-r1 ... │
                          └──────────────────────────────┘
 ```
 
@@ -141,13 +141,13 @@ The **context length** is the max number of tokens (roughly words) the model can
   ┌──────────────────────────────────────────────────────────┐
   │                  CONTEXT WINDOW                          │
   │                                                          │
-  │  [System Prompt][Conversation History][Current Input]   │
+  │  [System Prompt][Conversation History][Current Input]    │
   │                                                          │
-  │  Short Context (2k):  [ ██████████████░░░░░░░░░░░░░░ ]  │
+  │  Short Context (2k):  [ ██████████████░░░░░░░░░░░░░░ ]   │
   │                         Fits short chats                 │
   │                                                          │
-  │  Long Context (128k): [ ████████████████████████████ ]  │
-  │                         Fits entire books               │
+  │  Long Context (128k): [ ████████████████████████████ ]   │
+  │                         Fits entire books                │
   └──────────────────────────────────────────────────────────┘
 ```
 
@@ -380,13 +380,13 @@ A **Modelfile** lets you create a reusable custom model with specific behavior b
   Modelfile defines:
   ┌────────────────────────────────────────────────────────┐
   │                                                        │
-  │  FROM llama3.2              ◀──── Base model           │
+  │  FROM llama3.2              ◀──── Base model          │
   │                                                        │
-  │  PARAMETER temperature 0.3  ◀──── How creative/random  │
-  │  PARAMETER top_p 0.9        ◀──── Nucleus sampling      │
-  │  PARAMETER num_ctx 4096     ◀──── Context window size   │
+  │  PARAMETER temperature 0.3  ◀──── How creative/random │
+  │  PARAMETER top_p 0.9        ◀──── Nucleus sampling    │
+  │  PARAMETER num_ctx 4096     ◀──── Context window size │
   │                                                        │
-  │  SYSTEM """                 ◀──── Personality & rules   │
+  │  SYSTEM """                 ◀──── Personality & rules │
   │  You are James, a smart                                │
   │  assistant who answers                                 │
   │  succinctly.                                           │
@@ -550,17 +550,17 @@ The key insight: **text with similar meaning ends up with similar vectors.**
 
 ```
   ┌─────────────────────────────────────────────────────────────────┐
-  │                   EMBEDDING SPACE (simplified to 2D)           │
+  │                   EMBEDDING SPACE (simplified to 2D)            │
   │                                                                 │
-  │     cat ●  ● kitten      ◀── close together = similar meaning  │
+  │     cat ●  ● kitten      ◀── close together = similar meaning   │
   │         ●                                                       │
   │       kitty                                                     │
   │                                                                 │
-  │                           automobile ●                         │
+  │                           automobile ●                          │
   │                                  ● car  ◀── close together     │
-  │                             vehicle ●                          │
+  │                             vehicle ●                           │
   │                                                                 │
-  │                   ← distance = semantic difference →           │
+  │                   ← distance = semantic difference →            │
   └─────────────────────────────────────────────────────────────────┘
 
   Real embeddings have 768, 1536, or 3072+ dimensions
@@ -644,10 +644,10 @@ LangChain uses a pipe (`|`) syntax to compose processing steps — each step fee
   │   "question": passthrough}                                    │
   │                                                               │
   │  Step 1: retriever    → fetches relevant document chunks      │
-  │  Step 2: passthrough  → passes user question through as-is   │
-  │  Step 3: prompt       → formats both into the RAG template   │
-  │  Step 4: llm          → generates the answer                 │
-  │  Step 5: parser       → converts output to plain string      │
+  │  Step 2: passthrough  → passes user question through as-is    │
+  │  Step 3: prompt       → formats both into the RAG template    │
+  │  Step 4: llm          → generates the answer                  │
+  │  Step 5: parser       → converts output to plain string       │
   └───────────────────────────────────────────────────────────────┘
 ```
 
@@ -916,17 +916,17 @@ What makes a reasoning model different from a standard LLM:
   │   Input tokens                                                  │
   │      │                                                          │
   │      ▼                                                          │
-  │  ┌──────────────────────────────────────────────────┐          │
+  │  ┌──────────────────────────────────────────────────┐           │
   │  │              ATTENTION MECHANISM                  │          │
-  │  │  Lets each token "look at" all other tokens      │          │
+  │  │  Lets each token "look at" all other tokens      │           │
   │  │  to understand relationships and context          │          │
-  │  └──────────────────────────────────────────────────┘          │
+  │  └──────────────────────────────────────────────────┘           │
   │      │                                                          │
   │      ▼  (repeated N times = N layers)                           │
-  │  ┌──────────────────────────────────────────────────┐          │
+  │  ┌──────────────────────────────────────────────────┐           │
   │  │              FEED-FORWARD NETWORK                 │          │
   │  │  Processes and transforms the attended features   │          │
-  │  └──────────────────────────────────────────────────┘          │
+  │  └──────────────────────────────────────────────────┘           │
   │      │                                                          │
   │      ▼                                                          │
   │   Output token probabilities → generate next token              │
@@ -983,7 +983,7 @@ Models come in different forms optimized for different hardware constraints:
 
 ```
   ┌─────────────────────────────────────────────────────────────────────┐
-  │                      MODEL VARIANT SPECTRUM                        │
+  │                      MODEL VARIANT SPECTRUM                         │
   │                                                                     │
   │  BASE MODEL                                                         │
   │  ┌──────────────────┐                                               │
@@ -994,7 +994,7 @@ Models come in different forms optimized for different hardware constraints:
   │           ▼                                                         │
   │  DISTILLED MODELS                                                   │
   │  ┌──────────────────┐                                               │
-  │  │ Medium: ~7B-14B  │  Good reasoning, needs GPU (8-16GB VRAM)     │
+  │  │ Medium: ~7B-14B  │  Good reasoning, needs GPU (8-16GB VRAM)      │
   │  │ Small:  ~3B      │  Decent capability, CPU-friendly              │
   │  │ Tiny:   ~1.5B    │  Simple tasks only, runs anywhere             │
   │  └────────┬─────────┘                                               │
@@ -1004,7 +1004,7 @@ Models come in different forms optimized for different hardware constraints:
   │  ┌──────────────────┐                                               │
   │  │ Q4 / Q8 versions │  ~4x smaller, slightly less accurate          │
   │  │ of any size above│  Much faster inference, lower RAM             │
-  │  └──────────────────┘  Think: phone                                │
+  │  └──────────────────┘  Think: phone                                 │
   └─────────────────────────────────────────────────────────────────────┘
 
   Practical guide:
@@ -1028,16 +1028,16 @@ Models come in different forms optimized for different hardware constraints:
   │      OPEN SOURCE MODELS        │       CLOSED SOURCE MODELS           │
   │   (Ollama, Hugging Face)       │  (OpenAI, Anthropic, Google)         │
   ├────────────────────────────────┼──────────────────────────────────────┤
-  │ ✅ Full transparency            │ ✅ Reliability & SLA guarantees       │
-  │ ✅ Unlimited customization      │ ✅ Ease of use (API key → running)   │
-  │ ✅ Community collaboration      │ ✅ Enterprise compliance features     │
-  │ ✅ Cost control (pay hardware)  │ ✅ Consistently optimized at scale   │
-  │ ✅ Complete privacy             │                                      │
+  │ ✅ Full transparency            │ ✅ Reliability & SLA guarantees    │
+  │ ✅ Unlimited customization      │ ✅ Ease of use (API key → running) │
+  │ ✅ Community collaboration      │ ✅ Enterprise compliance features  │
+  │ ✅ Cost control (pay hardware)  │ ✅ Consistently optimized at scale │
+  │ ✅ Complete privacy             │                                    │
   │                                │                                      │
-  │ ⚠️  Initial setup complexity   │ ⚠️  Usage costs (per token)          │
-  │ ⚠️  You own the infra          │ ⚠️  Your data leaves your network    │
-  │ ⚠️  Hardware requirements      │ ⚠️  Limited customization            │
-  │ ⚠️  You manage updates         │ ⚠️  Vendor lock-in risk              │
+  │ ⚠️  Initial setup complexity   │ ⚠️  Usage costs (per token)         │
+  │ ⚠️  You own the infra          │ ⚠️  Your data leaves your network   │
+  │ ⚠️  Hardware requirements      │ ⚠️  Limited customization           │
+  │ ⚠️  You manage updates         │ ⚠️  Vendor lock-in risk             │
   └────────────────────────────────┴──────────────────────────────────────┘
 
   Decision framework:
