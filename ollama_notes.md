@@ -51,7 +51,7 @@ Instead of dealing with complex cloud APIs, authentication, rate limits, or data
                          │           OLLAMA            │
                          │                             │
    ┌──────────┐          │  ┌─────────┐  ┌──────────┐  │            ┌─────────────┐
-   │   User   │◀────────▶│ │   CLI   │  │ REST API │   │◀────────▶│  Your App   │
+   │   User   │◀───────▶│ │   CLI   │  │ REST API │   │◀────────▶│  Your App   │
    └──────────┘          │  └─────────┘  └──────────┘  │            └─────────────┘
                          │         │          │        │
                          │         ▼          ▼        │
