@@ -20,6 +20,7 @@ and common errors from each topic.
 | FastAPI | 🔄 In Progress | [Notes](FastAPI/notes.md) |
 | Local LLM Development (Ollama & DeepSeek R1) | ✅ Complete | [Notes](ollama_notes.md) |
 | Python Programming | 🔄 In Progress | [Notes](python_programming.md) |
+| MCP | ✅ Complete | [Notes](mcp.md) |
 
 ---
 
