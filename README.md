@@ -17,7 +17,7 @@ and common errors from each topic.
 
 | Topic | Status | Notes |
 |---|---|---|
-| Agentic AI(with ollama) | ✅ Complete | [Notes](agentic_ai_with_ollama.md) |
+| Agentic AI(with ollama) | ✅ Complete | [Notes](Agentic_ai_with_ollama.md) |
 | FastAPI | 🔄 In Progress | [Notes](FastAPI/notes.md) |
 | Local LLM Development (Ollama & DeepSeek R1) | ✅ Complete | [Notes](ollama_notes.md) |
 | Python Programming | 🔄 In Progress | [Notes](python/python_programming.md) |
