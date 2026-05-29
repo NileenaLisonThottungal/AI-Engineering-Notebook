@@ -791,7 +791,7 @@ sequenceDiagram
 
 ---
 
-### Plain English Summary
+###  Summary
 
 > **Problem:** Long agents forget their goals as context fills up.
 >
@@ -1005,7 +1005,7 @@ result["files"]
 
 ---
 
-### Plain English Summary
+### Summary
 
 > **Problem:** Token-heavy tool results bloat the context window and cause the agent to lose track of earlier goals.
 >
@@ -1252,7 +1252,7 @@ sequenceDiagram
 
 ---
 
-### Plain English Summary
+### Summary
 
 > **Problem:** One agent doing everything sees too much — mixed goals, noisy history, context getting confused.
 >
@@ -1565,7 +1565,7 @@ sequenceDiagram
 
 ---
 
-### Plain English Summary
+### Summary
 
 > **This notebook is the payoff.** All four components — planning (todos), memory (files), delegation (sub-agents), and steering (prompts) — work together as one system.
 >
