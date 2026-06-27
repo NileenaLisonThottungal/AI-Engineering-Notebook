@@ -19,9 +19,7 @@ and common errors from each topic.
 |---|---|---|
 | Agentic AI(with ollama) | ✅ Complete | [Notes](Agentic_ai_with_ollama.md) |
 | Deep Agents | ✅ Complete | [Notes](deep_agent.md) |
-| FastAPI | 🔄 In Progress | [Notes](FastAPI/notes.md) |
 | Local LLM Development (Ollama & DeepSeek R1) | ✅ Complete | [Notes](ollama_notes.md) |
-| Python Programming | 🔄 In Progress | [Notes](python/python_programming.md) |
 | MCP | ✅ Complete | [Notes](mcp.md) |
 | 5-Day AI Agents Intensive (Google × Kaggle) | ✅ Complete | [Day 1](5%20Day%20Intensive%20Vibe%20Coding%20Kaggle/day1.md) · [Day 2](5%20Day%20Intensive%20Vibe%20Coding%20Kaggle/day2.md) · [Day 3](5%20Day%20Intensive%20Vibe%20Coding%20Kaggle/day3.md) · [Day 4](5%20Day%20Intensive%20Vibe%20Coding%20Kaggle/day4.md) · [Day 5](5%20Day%20Intensive%20Vibe%20Coding%20Kaggle/day5.md) |
 
